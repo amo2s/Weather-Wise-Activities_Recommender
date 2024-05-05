@@ -1,0 +1,141 @@
+/* Reset Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease; /* Added transition for smooth effects */
+}
+
+/* Basic Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+  /* Added gradient background */
+  background: linear-gradient(to right, #4285f4, #f0f0f0);
+}
+
+header, footer {
+  background-color: #4285f4;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+  /* Added box shadow for depth */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"],
+button {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  /* Added hover effect for interactive elements */
+  transition: transform 0.3s;
+}
+
+input[type="text"]:hover,
+button:hover {
+  transform: scale(1.02);
+}
+
+/* Specific Styles */
+h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#location {
+  text-align: center;
+}
+
+#weather {
+  text-align: center;
+}
+
+#activities {
+  text-align: center;
+}
+
+#activity-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Weather Information Styles */
+.weather-info {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.weather-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #4285f4;
+}
+
+.weather-info p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Weather Icon Styles */
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  /* Added animation for weather icon */
+  animation: bounceIn 1s ease-out both;
+}
+
+/* Added keyframes for bounceIn animation */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Recommended Activities Styles */
+.activity-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activity-list li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #4285f4;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
