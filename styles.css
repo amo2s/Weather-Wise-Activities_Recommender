@@ -6,160 +6,113 @@
   transition: all 0.3s ease;
 }
 
-/* Premium Background Effect */
+/* Modern Background */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  color: #fff;
-  overflow: hidden; /* Prevents unnecessary scroll */
-  position: relative;
-}
-
-/* Floating Particle Background */
-body::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.imgur.com/7E4Wf8M.png'); /* Transparent particle effect */
-  opacity: 0.1;
-  z-index: -1;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f4f4f4, #dfe9f3);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 /* Header & Footer */
 header, footer {
-  background: rgba(66, 133, 244, 0.8);
-  backdrop-filter: blur(10px);
-  color: #fff;
+  background: #4285f4;
+  color: white;
   text-align: center;
-  padding: 20px 0;
+  padding: 15px 0;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
 }
 
-/* Smooth Section Styling */
+/* Section Styling */
 section {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
 }
 
-section:hover {
-  transform: scale(1.02);
-}
-
-/* Glassmorphism Input & Button */
+/* Input & Button Styling */
 input[type="text"], button {
-  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  font-size: 16px;
   border: none;
   border-radius: 8px;
-  padding: 12px;
-  font-size: 18px;
-  color: #fff;
-  backdrop-filter: blur(10px);
   outline: none;
+  transition: all 0.2s ease-in-out;
 }
 
-input[type="text"]::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+input[type="text"] {
+  width: 70%;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 button {
+  background: #4285f4;
+  color: white;
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
-  transition: 0.3s;
-  box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+  width: 25%;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(66, 133, 244, 0.8);
+  background: #316ac5;
+  transform: translateY(-2px);
 }
 
-/* Click Effect */
 button:active {
-  transform: scale(0.98);
-  box-shadow: 0 0 5px rgba(66, 133, 244, 0.9);
+  transform: translateY(1px);
 }
 
-/* Neon Glow for Titles */
-h1, h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(66, 133, 244, 0.8);
-  animation: neonGlow 1.5s infinite alternate;
-}
-
-/* Neon Glow Animation */
-@keyframes neonGlow {
-  0% { text-shadow: 0 0 5px rgba(66, 133, 244, 0.8); }
-  100% { text-shadow: 0 0 15px rgba(66, 133, 244, 1); }
-}
-
-/* Weather Info Card */
+/* Weather Card */
 .weather-info {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .weather-info h3 {
   font-size: 22px;
-  color: #ffcc00;
+  color: #4285f4;
 }
 
 .weather-info p {
   font-size: 18px;
 }
 
-/* Smooth Fade-out Effect */
-.motivation-text {
-  font-size: 18px;
-  color: #ffcc00;
-  text-align: center;
-  opacity: 1;
-  transition: opacity 2s ease-in-out;
-}
-
-.motivation-text.hide {
-  opacity: 0;
-}
-
 /* Weather Icon */
 .weather-icon {
-  width: 100px;
-  height: 100px;
-  margin: 20px auto;
-  display: block;
-  animation: bounceIn 1s ease-out both;
-}
-
-/* Bounce-in Effect */
-@keyframes bounceIn {
-  0% { transform: scale(0.1); opacity: 0; }
-  60% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); }
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
 /* Footer */
 footer {
   padding: 10px;
   font-size: 16px;
+  font-weight: normal;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  h1, h2 {
-    font-size: 2rem;
+  input[type="text"], button {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
