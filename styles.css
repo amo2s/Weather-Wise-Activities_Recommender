@@ -3,139 +3,163 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease; /* Added transition for smooth effects */
+  transition: all 0.3s ease;
 }
 
-/* Basic Styles */
+/* Premium Background Effect */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-  line-height: 1.6;
-  /* Added gradient background */
-  background: linear-gradient(to right, #4285f4, #f0f0f0);
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+  overflow: hidden; /* Prevents unnecessary scroll */
+  position: relative;
 }
 
+/* Floating Particle Background */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/7E4Wf8M.png'); /* Transparent particle effect */
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Header & Footer */
 header, footer {
-  background-color: #4285f4;
+  background: rgba(66, 133, 244, 0.8);
+  backdrop-filter: blur(10px);
   color: #fff;
   text-align: center;
   padding: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-main {
-  padding: 20px;
-}
-
+/* Smooth Section Styling */
 section {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 20px;
   margin-bottom: 20px;
-  /* Added box shadow for depth */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
 }
 
-input[type="text"],
-button {
-  padding: 10px;
-  font-size: 16px;
-  margin-right: 10px;
-  /* Added hover effect for interactive elements */
-  transition: transform 0.3s;
-}
-
-input[type="text"]:hover,
-button:hover {
+section:hover {
   transform: scale(1.02);
 }
 
-/* Specific Styles */
-h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+/* Glassmorphism Input & Button */
+input[type="text"], button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 18px;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  outline: none;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-#location {
+button {
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(66, 133, 244, 0.8);
+}
+
+/* Click Effect */
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 5px rgba(66, 133, 244, 0.9);
+}
+
+/* Neon Glow for Titles */
+h1, h2 {
+  font-size: 2.5rem;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(66, 133, 244, 0.8);
+  animation: neonGlow 1.5s infinite alternate;
 }
 
-#weather {
-  text-align: center;
+/* Neon Glow Animation */
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 5px rgba(66, 133, 244, 0.8); }
+  100% { text-shadow: 0 0 15px rgba(66, 133, 244, 1); }
 }
 
-#activities {
-  text-align: center;
-}
-
-#activity-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Weather Information Styles */
+/* Weather Info Card */
 .weather-info {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
   padding: 20px;
-  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.2);
 }
 
 .weather-info h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #4285f4;
+  font-size: 22px;
+  color: #ffcc00;
 }
 
 .weather-info p {
   font-size: 18px;
-  margin-bottom: 10px;
 }
 
-/* Weather Icon Styles */
+/* Smooth Fade-out Effect */
+.motivation-text {
+  font-size: 18px;
+  color: #ffcc00;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+.motivation-text.hide {
+  opacity: 0;
+}
+
+/* Weather Icon */
 .weather-icon {
   width: 100px;
   height: 100px;
-  margin-bottom: 20px;
-  /* Added animation for weather icon */
+  margin: 20px auto;
+  display: block;
   animation: bounceIn 1s ease-out both;
 }
 
-/* Added keyframes for bounceIn animation */
+/* Bounce-in Effect */
 @keyframes bounceIn {
-  0% {
-    transform: scale(0.1);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0.1); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
 }
 
-
-/* Recommended Activities Styles */
-.activity-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.activity-list li {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-/* Footer Styles */
+/* Footer */
 footer {
-  background-color: #4285f4;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 2rem;
+  }
 }
