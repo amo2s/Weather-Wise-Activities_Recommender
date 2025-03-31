@@ -144,3 +144,49 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 });
+// WeatherWise Voice Interaction - Phase 1
+
+// Check if browser supports Speech Synthesis & Recognition const synth = window.speechSynthesis; const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; const recognition = new SpeechRecognition(); recognition.lang = 'en-US'; recognition.continuous = false; recognition.interimResults = false;
+
+// Function to speak text function speak(text) { const utterance = new SpeechSynthesisUtterance(text); utterance.rate = 1; synth.speak(utterance); }
+
+// Function to get user location function getLocation() { if (navigator.geolocation) { navigator.geolocation.getCurrentPosition( position => { const lat = position.coords.latitude; const lon = position.coords.longitude; fetchWeather(lat, lon); }, () => { speak("I couldn't access your location. Please say your city name."); recognition.start(); } ); } else { speak("Your browser does not support location access. Please say your city name."); recognition.start(); } }
+
+// Function to fetch weather data function fetchWeather(lat, lon) { const apiKey = '8a6b39ac48083b9dc055856c0629e747'; const url = https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey};
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const weather = data.weather[0].description;
+        const temp = data.main.temp;
+        const city = data.name;
+        suggestActivity(city, weather, temp);
+    })
+    .catch(() => speak("I couldn't fetch the weather. Please try again later."));
+
+}
+
+// Function to suggest activities function suggestActivity(city, weather, temp) { let activity = ""; if (weather.includes("rain")) { activity = "a cozy indoor activity like reading or watching a movie."; } else if (temp > 30) { activity = "going for a swim or having a cool drink at a café."; } else { activity = "taking a walk or enjoying outdoor games."; }
+
+speak(`The weather in ${city} is ${temp} degrees Celsius with ${weather}. I recommend ${activity}`);
+
+}
+
+// Start interaction speak("Hey there! Let's plan your day. Can I access your location?"); setTimeout(getLocation, 3000);
+
+// Handle speech recognition result recognition.onresult = function(event) { const city = event.results[0][0].transcript; const apiKey = '8a6b39ac48083b9dc055856c0629e747'; const url = https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey};
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if (data.cod === 200) {
+            suggestActivity(city, data.weather[0].description, data.main.temp);
+        } else {
+            speak("I couldn't find that city. Please try again.");
+            recognition.start();
+        }
+    })
+    .catch(() => speak("Something went wrong. Please try again."));
+
+};
+
